@@ -3,6 +3,8 @@
 **Algebraic points on a circle, plus at most three arbitrary points on the same circle, form a
 Euclidean Ramsey set. Proved in Lean 4.**
 
+Registered on the Palomar registry as [PALOMAR-2026-10-16-000018](https://palomar-registry.org/entry?id=PALOMAR-2026-10-16-000018&version=1) (version 1, 2026-10-16; archived commit `fe257ec`).
+
 A finite set of points in Euclidean space is *Ramsey* if for every number of colours `r ≥ 2`
 there is a dimension `D` such that every `r`-colouring of `ℝ^D` contains a monochromatic congruent
 copy of the set. OpenAI's result 172 classified the finite Ramsey configurations by a tensor
