@@ -33,7 +33,9 @@ project:
     and proofs; it packages that one theorem as a standalone, Comparator-checked
     repository at a current toolchain (docs/PORT-LOG.md).
   authors:
-    - "Will Strinz"
+    - name: "Will Strinz"
+      github: "wstrinz"
+      orcid: "0009-0007-7682-8284"
   license: "MIT"
   responsible_maintainers:
     - "Will Strinz"

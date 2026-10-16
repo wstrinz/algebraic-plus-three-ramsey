@@ -6,6 +6,7 @@ version: "1.0.0"
 authors:
   - family-names: "Strinz"
     given-names: "Will"
+    orcid: "https://orcid.org/0009-0007-7682-8284"
 license: MIT
 repository-code: "https://github.com/wstrinz/algebraic-plus-three-ramsey"
 abstract: >-
