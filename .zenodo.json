@@ -1,0 +1,66 @@
+{
+  "upload_type": "software",
+  "title": "algebraic-plus-three-ramsey: algebraic points on a circle plus at most three arbitrary points are Euclidean Ramsey (Lean 4)",
+  "version": "1.0.0",
+  "creators": [
+    {
+      "name": "Strinz, Will"
+    }
+  ],
+  "license": "MIT",
+  "description": "<p>A Lean 4 proof of Theorem B(b): a finite set of points on a circle in the plane (any centre and radius), all but at most three of which have real algebraic coordinates, is Euclidean Ramsey. With the Möbius invariance of the Ramsey property (Theorem C of mobius-ramsey; the combination is by hand), it shows that every set in the class of Theorem A.10 of the appendix of Pálvölgyi's arXiv:2609.23327 is Ramsey, a class whose Ramsey status A.10 leaves open. The proof builds an explicit certificate for the field criterion of OpenAI's classification of finite Euclidean Ramsey configurations (openai/math, result 172) and concludes with OpenAI's Lean proof of its sufficiency, which it trusts; the case of at most six points is the six-concyclic-points theorem (prior work of JD-Jones-ASES).</p><p><strong>Provenance.</strong> The result, its hand proof and its first Lean proof come from the spherical-ramsey release (doi:10.5281/zenodo.23396387), where the Lean proof is rope AV5 at Lean v4.34.1. This package is that Lean proof ported to the Lean module system and Lean v4.35.0-rc2, with the same statements and proofs, as a standalone repository.</p><p><strong>Verification.</strong> Every theorem depends only on the axioms propext, Classical.choice and Quot.sound; the toolchain's lake comparator (Lean v4.35.0-rc2) accepts the proofs against a Mathlib-only statement file with the Lean, NanoDa and con-ron kernels, and refuses five negative controls.</p><p><strong>AI disclosure.</strong> The author, Will Strinz, is the only human contributor. The proofs, the Lean port, the checks and the documentation were produced by AI agents (Claude Opus 5.5 and Claude Sonnet 5.5, Anthropic, in Claude Code) under his direction. No human expert has reviewed this work. See DISCLOSURE.md.</p><p><strong>Licence.</strong> A mixed tree: this project's own files are under the MIT License; the OpenAI Lean files under OAI/, one file adapting OpenAI's circle lemmas (AlgebraicPlusThree/SixPointCircle.lean) and two PalomarTemplate scripts under scripts/ are under the Apache License 2.0. NOTICE lists which file is under which licence.</p>",
+  "keywords": [
+    "Euclidean Ramsey theory",
+    "cyclic configurations",
+    "algebraic numbers",
+    "Lean 4",
+    "formal verification",
+    "Mathlib"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.23396387",
+      "relation": "isDerivedFrom",
+      "resource_type": "software",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.23396387",
+      "relation": "cites",
+      "resource_type": "software",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+      "relation": "isDerivedFrom",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "10.5281/zenodo.23339523",
+      "relation": "isDerivedFrom",
+      "resource_type": "software",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "arXiv:2609.23327",
+      "relation": "references",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "identifier": "https://github.com/JD-Jones-ASES/six-concyclic-lean/tree/0703d7d",
+      "relation": "references",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://github.com/Rogerhu12/openai-math-extensions/tree/f8a2bb2",
+      "relation": "references",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://github.com/atimics/math2/tree/8ab51fa",
+      "relation": "references",
+      "resource_type": "software"
+    }
+  ]
+}

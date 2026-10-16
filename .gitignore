@@ -1,0 +1,4 @@
+/.cache/
+/.lake/
+/tests/controls/.cfg-*.json
+/tests/controls/.log-*.txt

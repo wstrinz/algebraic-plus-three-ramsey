@@ -1,0 +1,50 @@
+algebraic-plus-three-ramsey: algebraic points on a circle plus at most three arbitrary points are
+Euclidean Ramsey
+Copyright (c) 2026 Will Strinz
+
+Licensing
+=========
+
+* Files written for this project are under the MIT License (LICENSE): AlgebraicPlusThree/ (except
+  AlgebraicPlusThree/SixPointCircle.lean, below), Challenge.lean, Solution.lean, comparator.json,
+  tests/, scripts/port_to_modules.py, scripts/check_statements.py, scripts/make_controls.py, the
+  Lake files, the GitHub workflows, and the documentation.
+
+* OAI/Combinatorics/EuclideanRamsey/*.lean are derived from the Lean sources of "A classification
+  of finite Euclidean Ramsey configurations" (result 172 of the OpenAI math release):
+
+    https://github.com/openai/math, commit fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb
+    lean/OAI/Combinatorics/EuclideanRamsey/<file>.lean -> OAI/Combinatorics/EuclideanRamsey/<file>.lean
+    LICENSE                                            -> LICENSES/Apache-2.0.txt
+
+  They are licensed under the Apache License, Version 2.0 (LICENSES/Apache-2.0.txt). Every one of
+  them was modified, in its header only: each carries a notice at its top saying so, and
+  docs/PORT-LOG.md lists every change. The modifications are a `module` line, `import` turned into
+  `public import`, an `@[expose] public section` line, and the notice itself; no statement, proof
+  or other line was changed. The 28 files are the import closure of upstream `Main.lean`:
+
+    AdicLifting, ColoringCompactness, Congruence, CornerGroup, CorrectionPaths, DerivedFractions,
+    DifferentialSplitting, Discretization, FiniteEuclidean, GramCompletion, Hessian,
+    LatticeMoments, Main, Model, NormalCost, OrbitAveraging, PathFractions, PathSynchronization,
+    PathWords, RationalConvolution, SignedRows, SmoothingKernel, SmoothingMatrix,
+    StencilConvolution, TensorDescent, TensorNecessity, TensorPresentation, UltrafilterStrings
+
+* AlgebraicPlusThree/SixPointCircle.lean adapts lemmas of the same release's
+  lean/OAI/Combinatorics/EuclideanRamsey/CircleGeometry.lean and CircleExtension.lean (Apache
+  License 2.0, Copyright OpenAI): ramsey_restrict, zero_radius_ramsey, circle_coordinates,
+  stereographic, stereographic_recover, stereographic_injective, stereographic_on_circle and
+  circle_infinite are copied into the namespace OAI.EuclideanRamsey.SixPoint, and extend_to_five
+  is generalized to extend_to_six (the target size 5 replaced by 6). The file's header and each
+  lemma's docstring say so. That file is under the Apache License, Version 2.0
+  (LICENSES/Apache-2.0.txt). It was further modified for this package by the header-only
+  module-system port described in docs/PORT-LOG.md.
+
+* `Space`, `Congruent` and `Ramsey` in Challenge.lean and in tests/controls/Controls/*.lean repeat
+  OpenAI's definitions verbatim (Model.lean at the same commit; Apache-2.0).
+
+* scripts/check-lean-sources.py and scripts/verify-comparator.sh are copied unmodified from
+  https://github.com/PalomarRegistry/PalomarTemplate, commit
+  2891de4c48955af824969a263d31b25e7a9a1406 (Apache License, Version 2.0).
+
+* Every other file in this repository that is not listed above as Apache-2.0 (or as a quotation
+  of Apache-2.0 material) is under the MIT License (LICENSE).

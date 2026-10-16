@@ -1,0 +1,91 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "algebraic-plus-three-ramsey: algebraic points on a circle plus at most three arbitrary points are Euclidean Ramsey (Lean 4)"
+version: "1.0.0"
+authors:
+  - family-names: "Strinz"
+    given-names: "Will"
+license: MIT
+repository-code: "https://github.com/wstrinz/algebraic-plus-three-ramsey"
+abstract: >-
+  A Lean 4 proof that a finite set of points on a circle in the plane (any centre
+  and radius), all but at most three of which have real algebraic coordinates, is
+  Euclidean Ramsey (Theorem B(b) of the note in spherical-ramsey v1.1.0,
+  doi:10.5281/zenodo.23396387, of which this is the Lean proof ported to the Lean
+  module system and Lean v4.35.0-rc2, with the same statements and proofs). With
+  the Möbius invariance proved in mobius-ramsey (Theorem C; the combination is by
+  hand), it settles the class that Theorem A.10 of the appendix of Pálvölgyi's
+  arXiv:2609.23327 leaves undecided: such sets are Ramsey. The proof builds an explicit
+  certificate for the field criterion of OpenAI's classification of finite
+  Euclidean Ramsey configurations (openai/math, result 172) and concludes with
+  OpenAI's Lean proof of its sufficiency, which it trusts; the case of at most six
+  points is the six-concyclic-points theorem (prior work of JD-Jones-ASES).
+  Verification. Every theorem depends only on the axioms propext,
+  Classical.choice and Quot.sound; the toolchain's lake comparator (Lean
+  v4.35.0-rc2) accepts the proofs against a Mathlib-only statement file with the
+  Lean, NanoDa and con-ron kernels, and refuses five negative controls. AI
+  disclosure. The author, Will Strinz, is the only human contributor. The proofs,
+  the Lean port, the checks and the documentation were produced by AI agents
+  (Claude Opus 5.5 and Claude Sonnet 5.5, Anthropic, in Claude Code) under his
+  direction; no human expert has reviewed this work. See DISCLOSURE.md.
+  Licence. A mixed tree: this project's own files are under the MIT License; the
+  OpenAI-derived Lean files and two PalomarTemplate scripts are under the Apache
+  License 2.0. NOTICE lists which file is under which licence.
+keywords:
+  - Euclidean Ramsey theory
+  - cyclic configurations
+  - algebraic numbers
+  - Lean 4
+  - formal verification
+  - Mathlib
+references:
+  - type: software
+    title: "spherical-ramsey: which finite spherical sets are Euclidean Ramsey (Lean 4 ropes, exact certificates, probes, note and conjecture ledger)"
+    authors:
+      - family-names: "Strinz"
+        given-names: "Will"
+    version: "1.1.0"
+    doi: "10.5281/zenodo.23396387"
+    repository-code: "https://github.com/wstrinz/spherical-ramsey"
+  - type: software
+    title: "openai/math: A classification of finite Euclidean Ramsey configurations (result 172), preprint and Lean proof"
+    authors:
+      - name: "OpenAI"
+    repository-code: "https://github.com/openai/math"
+    commit: "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb"
+    license: Apache-2.0
+  - type: software
+    title: "six-concyclic-lean"
+    authors:
+      - name: "JD-Jones-ASES"
+    repository-code: "https://github.com/JD-Jones-ASES/six-concyclic-lean"
+    commit: "0703d7d"
+  - type: article
+    title: "A cyclic non-Ramsey heptagon"
+    authors:
+      - family-names: "Pálvölgyi"
+        given-names: "Dömötör"
+    identifiers:
+      - type: other
+        value: "arXiv:2609.23327"
+  - type: software
+    title: "mobius-ramsey: Möbius invariance of the Ramsey property for finite spherical sets (Lean 4)"
+    authors:
+      - family-names: "Strinz"
+        given-names: "Will"
+    version: "1.0.0"
+    doi: "10.5281/zenodo.23339523"
+    repository-code: "https://github.com/wstrinz/mobius-ramsey"
+  - type: software
+    title: "openai-math-extensions"
+    authors:
+      - name: "Rogerhu12"
+    repository-code: "https://github.com/Rogerhu12/openai-math-extensions"
+    commit: "f8a2bb2"
+  - type: software
+    title: "math2"
+    authors:
+      - name: "atimics"
+    repository-code: "https://github.com/atimics/math2"
+    commit: "8ab51fa"

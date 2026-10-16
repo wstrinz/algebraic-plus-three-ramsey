@@ -1,0 +1,10 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Challenge",
+  "theorem_names": [
+    "OAI.EuclideanRamsey.ramsey_alg_plus_three",
+    "AlgebraicPlusThree.ramsey_alg_plus_three_mathlib"
+  ],
+  "definition_names": [],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}

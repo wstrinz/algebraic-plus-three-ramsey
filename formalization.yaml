@@ -1,0 +1,267 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Algebraic points on a circle plus at most three arbitrary points are Euclidean Ramsey"
+  description: >-
+    Theorem B(b): finitely many distinct points on a circle in the Euclidean plane
+    (centre and radius arbitrary reals), all of whose coordinates are algebraic
+    over Q except for the points with indices in a set T of at most three, form a
+    Euclidean Ramsey configuration. Ramsey is OpenAI's definition from result 172
+    (for every r >= 2 there is D such that every r-colouring of R^D contains a
+    monochromatic congruent copy). The theorem is stated in OpenAI's vocabulary
+    and again in Mathlib vocabulary (Mathlib's Congruent). With the Möbius
+    invariance of the Ramsey property (mobius-ramsey, Theorem C; the combination
+    is by hand), it shows that every set in the class of Theorem A.10 of the
+    appendix of Pálvölgyi's arXiv:2609.23327 is Ramsey; A.10 shows only that his
+    derivation certificates cannot prove such sets non-Ramsey, and leaves their
+    Ramsey status open.
+    Proof: for at most six points, the six-concyclic-points theorem (prior work
+    of JD-Jones-ASES, here with OpenAI's proved sufficiency); otherwise three
+    algebraic points make the circle algebraic, a translation, rational rotation
+    and scaling normalize it, and an explicit certificate (the separability
+    idempotent of the number field of the algebraic points times a graph form
+    through three points containing the exceptional ones) proves OpenAI's field
+    criterion, after which OpenAI's sufficiency theorem concludes. The proof
+    builds on OpenAI's complete Lean proof of the classification (openai/math
+    fd4aeeb2), whose 28 files are included with header-only changes for the Lean
+    module system. All theorems depend on propext, Classical.choice and
+    Quot.sound only. Provenance: this repository is a port, to the Lean module
+    system and Lean v4.35.0-rc2, of a Lean proof already public as rope AV5 of
+    spherical-ramsey v1.1.0 (doi:10.5281/zenodo.23396387; a rope there is a
+    self-contained Lean project checked by Comparator), with the same statements
+    and proofs; it packages that one theorem as a standalone, Comparator-checked
+    repository at a current toolchain (docs/PORT-LOG.md).
+  authors:
+    - "Will Strinz"
+  license: "MIT"
+  responsible_maintainers:
+    - "Will Strinz"
+
+classification:
+  arxiv: ["math.CO", "math.MG"]
+  msc2020: ["05D10", "52C10"]
+
+sources:
+  - title: "Algebraic points on a circle plus at most three arbitrary points are Euclidean Ramsey (Theorem B(b) of the note Two Möbius groups suffice: Euclidean Ramsey sets on spheres of every dimension, after the tensor classification, in spherical-ramsey v1.1.0)"
+    type: original-proof
+    authors:
+      - "Will Strinz"
+    id: "doi:10.5281/zenodo.23396387"
+    location: "note/spherical-ramsey.tex, Theorem B(b); ropes/av5 (the Lean proof, at Lean v4.34.1); certificates/cert_mobius.py (rational case)"
+    relationship: other
+    note: >-
+      The originating release. Theorem B(b), its hand proof and its first Lean
+      proof (rope AV5, Comparator-checked on a fresh runner, with a non-builder AI
+      fidelity review and a fresh AI reproduction) appeared there. This
+      repository is that Lean proof ported to the Lean module system (Lean
+      v4.35.0-rc2) with no statement or proof change (docs/PORT-LOG.md); the
+      advertised statements are compared with the rope's Comparator challenges
+      by scripts/check_statements.py. Same author. No prior statement of
+      Theorem B(b) was found (docs/PRIOR-WORK-SEARCH.md).
+    author_endorsement: "n/a"
+  - title: "A classification of finite Euclidean Ramsey configurations (OpenAI math release, result 172)"
+    authors:
+      - "OpenAI"
+    id: "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb"
+    type: paper
+    location: "preprints/A-classification-of-finite-Euclidean-Ramsey-configurations-September-23-2026/ (Theorem 1.1); lean/OAI/Combinatorics/EuclideanRamsey/ (Main.lean import closure)"
+    relationship: other
+    note: >-
+      The foundation. The proof here builds a certificate for OpenAI's field
+      criterion (FieldCriterion) and concludes with OpenAI's Lean proof of its
+      sufficiency (fieldCriterion_ramsey), whose 28 files are included, ported to
+      the module system by header-only changes (docs/PORT-LOG.md). The
+      definitions Space, Congruent and Ramsey are OpenAI's, verbatim. This work
+      trusts OpenAI's Lean proof, which is replayed by the kernels here.
+    license: "Apache-2.0"
+    author_endorsement: "not-contacted"
+  - title: "six-concyclic-lean: any six concyclic points satisfy OpenAI's field criterion"
+    authors:
+      - "JD-Jones-ASES"
+    id: "https://github.com/JD-Jones-ASES/six-concyclic-lean"
+    type: other
+    location: "root commit 0703d7d (2026-10-07)"
+    relationship: background
+    note: >-
+      Prior work for the six-point case used inside the proof (any at most six
+      distinct concyclic points are Ramsey; with Pálvölgyi's heptagon, seven is
+      the minimum size of a non-Ramsey cyclic set). JD-Jones-ASES proved in Lean,
+      at the level of OpenAI's field criterion, that six concyclic points satisfy
+      it, by the two-triple certificate that AlgebraicPlusThree/SixPoint.lean also
+      uses; their Ramsey conclusion is conditional on a hypothesis hsuff
+      standing for OpenAI's sufficiency direction. This repository's Lean proof
+      (circle_ramsey_of_le_six) was written without consulting theirs and
+      discharges that step with OpenAI's proved sufficiency theorem. Their
+      repository also proves the algebraic-coordinates case at the criterion
+      level. A repository of Lean and paper text.
+    author_endorsement: "not-contacted"
+  - title: "A cyclic non-Ramsey heptagon"
+    authors:
+      - "Dömötör Pálvölgyi"
+    id: "arXiv:2609.23327"
+    type: paper
+    location: "the heptagon; Appendix, Theorem A.10 (and A.3)"
+    relationship: background
+    note: >-
+      The heptagon shows that some cyclic sets are not Ramsey. Appendix Theorem
+      A.10 (labelled there as unchecked ChatGPT output) shows that his derivation
+      certificates for non-Ramsey-ness cannot exist for a set on the circle that a
+      Möbius map sends to algebraic points apart from at most three, and notes
+      that this does not decide Ramsey-ness; Theorem B(b), with Theorem C of
+      mobius-ramsey (by hand), decides it. Theorem A.3 shows that three cannot be
+      replaced by four.
+    author_endorsement: "not-contacted"
+  - title: "Finite spherical sets with algebraic coordinates are Ramsey (the case T empty)"
+    authors:
+      - "Rogerhu12"
+      - "atimics"
+    id: "https://github.com/Rogerhu12/openai-math-extensions; https://github.com/atimics/math2"
+    type: other
+    location: "openai-math-extensions commit f8a2bb2, papers/172-euclidean-ramsey/algebraic_spherical_configurations.tex; math2 commit 8ab51fa, EndToEnd/AlgebraicRamsey.lean"
+    relationship: background
+    note: >-
+      Prior statements and proofs of the algebraic-coordinates theorem, of which
+      the case T empty of Theorem B(b) is the plane case: in TeX with the same
+      separability-idempotent argument (Rogerhu12), and end to end in Lean for
+      algebraic configurations with full affine span (atimics). No code was
+      copied. Two repositories (TeX and Lean).
+    author_endorsement: "not-contacted"
+
+related_formalizations:
+  - id: "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/OAI/Combinatorics/EuclideanRamsey"
+    relationship: builds-on
+    note: "OpenAI's Lean proof of the classification; its Main.lean import closure is included (Apache-2.0), ported to the module system by header-only changes."
+  - id: "https://github.com/wstrinz/spherical-ramsey/tree/09f88943111035c1764169cfd96bde7340aff687/ropes/av5"
+    relationship: adapts
+    note: "Rope AV5 of spherical-ramsey v1.1.0 (doi:10.5281/zenodo.23396387), Lean v4.34.1: the same statements and proofs before the module-system port. Same author."
+  - id: "https://github.com/JD-Jones-ASES/six-concyclic-lean"
+    relationship: independent
+    note: "The six-point case at the level of OpenAI's field criterion (root commit 0703d7d), with the Ramsey conclusion conditional on hsuff."
+  - id: "https://github.com/wstrinz/mobius-ramsey"
+    relationship: builds-on
+    note: "Companion package by the same author (v1.0.0, doi:10.5281/zenodo.23339523; Palomar PALOMAR-2026-10-14-000008): Möbius invariance of the Ramsey property, which extends Theorem B(b) to Möbius images (by hand). Its module-system port of OpenAI's 28 files (the import closure of OpenAI's Main.lean) is taken here unchanged, byte for byte. None of its own modules is imported."
+  - id: "https://github.com/atimics/math2"
+    relationship: independent
+    note: "The algebraic-coordinates theorem end to end in Lean for configurations with full affine span (commit 8ab51fa); credited prior work for the case T empty."
+
+status:
+  scope: >-
+    Formalized: Theorem B(b) for an injective family of points of
+    EuclideanSpace R (Fin 2) on some circle (any centre and radius), with
+    algebraic coordinates outside a set T of at most three indices
+    (ramsey_alg_plus_three), its Mathlib-vocabulary restatement
+    (ramsey_alg_plus_three_mathlib), and the six-point theorem it uses
+    (circle_ramsey_of_le_six). A small satisfiability witness with T nonempty
+    (ramsey_alg_plus_three_nonvacuous) is proved but not advertised. Not formalized: the extension to circles in
+    higher-dimensional spaces and to sets congruent to such configurations (by
+    the congruence invariance of Ramsey, by hand); the extension to Möbius
+    images (with mobius-ramsey's Theorem C, by hand); the sharpness of "three"
+    (Pálvölgyi's Theorem A.3).
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "OAI.EuclideanRamsey.ramsey_alg_plus_three"
+      file: "AlgebraicPlusThree/AlgPlusThree.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+    - declaration: "AlgebraicPlusThree.ramsey_alg_plus_three_mathlib"
+      file: "AlgebraicPlusThree/MathlibStatement.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["claude-opus-5-5"]
+      framework: "Claude Code"
+      tool_setup: >-
+        A coordinating Claude Opus 5.5 session dispatched bounded Claude Opus 5.5
+        agents, each in its own git worktree: the Lean proofs on top of OpenAI's
+        development (Lean 4, Mathlib, lake build, #print axioms) for
+        spherical-ramsey, with stock Comparator runs and negative controls; the
+        non-builder fidelity review; the module-system port and this package,
+        built and checked on GitHub-hosted runners (lake comparator with three
+        kernels, five negative controls).
+        Exact computer-algebra certificates (Python, SymPy) were used while
+        exploring.
+      cost:
+        wall_time: "not recorded separately for this result; the port and this package took one working session"
+        spend_usd: "subscription-based"
+        hardware: "one desktop machine (Windows and WSL Ubuntu); GitHub-hosted runners"
+      prompting_notes: >-
+        Written task packets with explicit status tags, time boxes and hard rules
+        (no weakened statements, no added hypotheses, standard axioms only, no
+        sorry or native_decide).
+    - method: "agent"
+      models: ["claude-sonnet-5-5"]
+      framework: "Claude Code"
+      tool_setup: "Read-only agents for the prior-work searches (arXiv, GitHub, MathOverflow, bibliographic databases) and for a fresh reproduction of the originating release from its README and REPRODUCE alone."
+    - method: "other"
+      models: []
+      framework: "Claude (chat)"
+      tool_setup: "The exploratory conversation (claude.ai, Claude Opus 5.5) in which most of the originating release's claims first appeared."
+  spend_usd: "subscription-based"
+  notes: >-
+    Will Strinz directed the work and made every release decision; he reviewed
+    the originating note before its release, not line by line (an owner's
+    review, not expert review). The proofs, the port and the checks were
+    produced by AI agents. See DISCLOSURE.md.
+
+fidelity:
+  divergences: >-
+    Ramsey, Congruent and Space are OpenAI's definitions, verbatim; the
+    statements add no definitions (Mathlib's EuclideanSpace R (Fin 2),
+    Metric.sphere, Finset.card and IsAlgebraic only). OpenAI's Congruent and
+    Mathlib's are proved equivalent. The theorem is stated for the plane and for
+    algebraic coordinates in the given frame; circles in higher-dimensional
+    spaces and congruent copies are covered by the congruence invariance of
+    Ramsey, by hand. The set is an injective family Fin s -> plane, and the at
+    most three exceptional points are given by a Finset of indices. Item-by-item
+    table: docs/FIDELITY.md.
+
+review:
+  status: "agent-reviewed"
+  reviewers:
+    - "Claude Opus 5.5 (non-builder review of this package's statements and documentation)"
+    - "Claude Opus 5.5 (non-builder fidelity review of the statements, rope version)"
+    - "Claude Sonnet 5.5 (fresh reproduction of the rope version)"
+  notes: >-
+    The port's statements and documentation were reviewed by a further Claude
+    Opus 5.5 agent that did not build them (statements identical to the rope's;
+    documentation fixes applied). Before that, the rope's statements were
+    reviewed by a Claude Opus 5.5 agent that did not build the rope (faithful;
+    fixes to the fidelity note only, applied), and a Claude Sonnet 5.5 agent
+    reproduced the rope from its README alone. The port is also checked
+    mechanically (lake comparator with three kernels against a Mathlib-only
+    Challenge.lean, five negative controls refused, statement comparison with
+    the rope's challenges). No independent human expert review.
+
+alignment:
+  namespace: "OAI.EuclideanRamsey, AlgebraicPlusThree"
+  statements:
+    - source: "spherical-ramsey v1.1.0, note/spherical-ramsey.tex, Theorem B(b)"
+      lean: "OAI.EuclideanRamsey.ramsey_alg_plus_three"
+      module: "AlgebraicPlusThree.AlgPlusThree"
+      status: "proved"
+      note: "Points in the plane; centre and radius arbitrary; T is the set of indices of the at most three arbitrary points."
+    - source: "spherical-ramsey v1.1.0, note/spherical-ramsey.tex, Theorem B(b) (Mathlib vocabulary)"
+      lean: "AlgebraicPlusThree.ramsey_alg_plus_three_mathlib"
+      module: "AlgebraicPlusThree.MathlibStatement"
+      status: "proved"
+    - source: "spherical-ramsey v1.1.0, note/spherical-ramsey.tex, Theorem B(a) (prior work, JD-Jones-ASES)"
+      lean: "OAI.EuclideanRamsey.circle_ramsey_of_le_six"
+      module: "AlgebraicPlusThree.SixPoint"
+      status: "proved"
+      note: "Used for at most six points; not advertised in comparator.json."
+
+acknowledgements: >-
+  OpenAI (the classification of finite Euclidean Ramsey configurations and its
+  Lean proof); JD-Jones-ASES (the six-point case); Dömötör Pálvölgyi (the
+  non-Ramsey heptagon and the certificate-level Theorem A.10); Rogerhu12 and
+  atimics (prior work on algebraic coordinates); Mathlib; the Lean Comparator,
+  NanoDa and con-ron kernels as bundled with the Lean toolchain; the
+  PalomarTemplate scripts.
